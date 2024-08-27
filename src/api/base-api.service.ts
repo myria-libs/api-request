@@ -5,6 +5,7 @@ import {
     UnauthorizedException,
     InternalServerErrorException,
     Logger,
+    ForbiddenException,
 } from "@nestjs/common";
 import axios, {
     AxiosRequestConfig,
@@ -84,6 +85,20 @@ export default abstract class BaseApiService {
                     apiErrors: error.response.data,
                 });
             }
+            if (error.response.status === HttpStatus.FORBIDDEN) {
+                this.context.logger.fatal(
+                    {
+                        ...error.response.data,
+                        correlationId: this.context.correlationId,
+                    },
+                    "Request to api",
+                );
+                throw new ForbiddenException({
+                    status,
+                    statusText,
+                    apiErrors: error.response.data,
+                });
+            }            
             throw new InternalServerErrorException({
                 status,
                 statusText,
