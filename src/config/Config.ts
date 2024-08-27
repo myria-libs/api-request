@@ -10,7 +10,6 @@ import { ConfigOptions } from "../type";
 export class Config {
     private static instance: Config;
 
-    private leaderboardApiUrl: string | undefined;
     private developerId: string | undefined;
     private secretKey: string | undefined;
     private debug: boolean | undefined;
@@ -21,7 +20,6 @@ export class Config {
      *  @param {ConfigOptions} options - optional config object to initialize once if you want
      */
     private constructor(options?: ConfigOptions) {
-        this.leaderboardApiUrl = options?.leaderboardApiUrl;
         this.developerId = options?.developerId;
         this.secretKey = options?.secretKey;
         this.debug = options?.debug;
@@ -68,15 +66,6 @@ export class Config {
     setDebug(debug: boolean): Config {
         this.debug = debug;
         return this;
-    }
-
-    // Getters
-    /**
-     * Get the leaderboardApiUrl
-     * @returns {string} - Return the current leaderboardApiUrl
-     */
-    getLeaderboardApiUrl(): string | undefined {
-        return this.leaderboardApiUrl || "";
     }
 
     /**

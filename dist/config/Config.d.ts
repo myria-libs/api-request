@@ -9,7 +9,6 @@ import { ConfigOptions } from "../type";
  */
 export declare class Config {
     private static instance;
-    private leaderboardApiUrl;
     private developerId;
     private secretKey;
     private debug;
@@ -44,11 +43,6 @@ export declare class Config {
      * @returns {Config} - Return the current instance
      */
     setDebug(debug: boolean): Config;
-    /**
-     * Get the leaderboardApiUrl
-     * @returns {string} - Return the current leaderboardApiUrl
-     */
-    getLeaderboardApiUrl(): string | undefined;
     /**
      * Get the developerId
      * @returns {string} - Return the current developerId

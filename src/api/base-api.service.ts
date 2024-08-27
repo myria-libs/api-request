@@ -21,11 +21,11 @@ export interface QueryParams {
 }
 
 export default abstract class BaseApiService {
-    protected baseURL: string | undefined;
+    public baseURL: string | undefined;
 
-    protected context: RequestContext;
+    public context: RequestContext;
 
-    protected configService: Config;
+    public configService: Config;
 
     constructor(baseURL: string | undefined, configService: Config) {
         this.baseURL = baseURL;
@@ -39,7 +39,7 @@ export default abstract class BaseApiService {
     private refreshCorrelationId() {
         this.context.correlationId = randomUUID();
     }
-    protected handleError(error: any): void {
+    public handleError(error: any): void {
         if (error.response) {
             const { status, statusText } = error?.response;
             if (error.response.status === HttpStatus.NOT_FOUND) {
@@ -106,15 +106,13 @@ export default abstract class BaseApiService {
         throw new InternalServerErrorException(error);
     }
 
-    protected async get(
-        context: RequestContext,
+    public async get(
         url: string,
         query?: QueryParams,
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
     ): Promise<AxiosResponse<any, any> | undefined> {
         try {
-            this.context = context;
-            const headerRequest = this.buildHeaders(context, headers)
+            const headerRequest = this.buildHeaders(this.context, headers)
             const response = await axios.get(url, {
                 params: query,
                 headers: headerRequest,
@@ -127,16 +125,14 @@ export default abstract class BaseApiService {
         }
     }
 
-    protected async post(
-        context: RequestContext,
+    public async post(
         url: string,
         data: any,
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
     ): Promise<AxiosResponse<any, any> | undefined> {
         try {
-            this.context = context;
             const response = await axios.post(url, data, {
-                headers: this.buildHeaders(context, headers),
+                headers: this.buildHeaders(this.context, headers),
                 baseURL: this.baseURL,
                 timeout: this.configService.timeoutResponse,
             });
@@ -146,16 +142,14 @@ export default abstract class BaseApiService {
         }
     }
 
-    protected async put(
-        context: RequestContext,
+    public async put(
         url: string,
         data: any,
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
     ): Promise<AxiosResponse<any, any> | undefined> {
         try {
-            this.context = context;
             const response = await axios.put(url, data, {
-                headers: this.buildHeaders(context, headers),
+                headers: this.buildHeaders(this.context, headers),
                 baseURL: this.baseURL,
                 timeout: this.configService.timeoutResponse,
             });
@@ -165,16 +159,14 @@ export default abstract class BaseApiService {
         }
     }
 
-    protected async delete(
-        context: RequestContext,
+    public async delete(
         url: string,
         data?: any,
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
     ): Promise<any> {
         try {
-            this.context = context;
             const response = await axios.delete(url, {
-                headers: this.buildHeaders(context, headers),
+                headers: this.buildHeaders(this.context, headers),
                 timeout: this.configService.timeoutResponse,
                 baseURL: this.baseURL,
                 data,

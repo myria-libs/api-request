@@ -1,20 +1,23 @@
 
 import { waitTime } from "../../src/utils/wait-time";
 import {Config, LeaderboardApi} from "@myria/api-request"
+import { EnvConfig } from "./env.config";
 class LeaderboardBenchTestScript {
-    private config: Config
+    public config: Config
+    public env: EnvConfig
 
-    public leaderboardApiService: LeaderboardApi.LeaderboardApiService
+    public resourceApiService: LeaderboardApi.ResourceApiService
     
     constructor( ) {
+        this.env = new EnvConfig()
         this.config = Config.getInstance({
-            developerId: '0xbedeee64ca182867d1f1bbab1e6340143e200e282d8610ce138eb80d82a0da',
-            secretKey: '2bae1124a99465fcce77dbb663fbfcc60159c1ac56f96ff7baa13cde83336e47',
+            developerId:  this.env.developerId,
+            secretKey: this.env.apiKey,
             debug: true,
-            leaderboardApiUrl: "https://staging.myriaverse-leaderboard-api.nonprod-myria.com", 
             timeoutResponse : 9000
         });
-        this.leaderboardApiService = new LeaderboardApi.LeaderboardApiService(this.config)
+        this.resourceApiService = new LeaderboardApi.ResourceApiService(this.config)
+
     }
 }
 
@@ -23,8 +26,10 @@ class LeaderboardBenchTestScript {
 (async () => {
     try {
         const leaderboardApi =  new LeaderboardBenchTestScript();
-        const res = await leaderboardApi.leaderboardApiService.isAvailable()
-        console.log(res)
+        const {leaderboardUrl} = leaderboardApi.env
+        leaderboardApi.resourceApiService.setUrl(leaderboardUrl)
+        const res = await leaderboardApi.resourceApiService.get("")
+        console.log(res?.data)
         await waitTime(1000)
     } catch (e) {
         throw e

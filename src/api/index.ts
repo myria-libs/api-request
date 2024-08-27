@@ -1,1 +1,1 @@
-export * from "./leaderboard-api.service";
+export * from "./resource-api.service";
