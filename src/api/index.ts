@@ -1,1 +1,1 @@
-export * from "./core-api.service";
+export * from "./leaderboard-api.service";

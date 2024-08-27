@@ -18,12 +18,12 @@
         "forceConsistentCasingInFileNames": true,
         "inlineSourceMap": true,
         "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
         "resolveJsonModule": true,
         "strict": true,
         "useUnknownInCatchVariables": false,
         "moduleResolution": "node",
         "skipLibCheck": true,
+        "noImplicitReturns": false
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],

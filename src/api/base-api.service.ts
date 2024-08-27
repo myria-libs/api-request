@@ -36,6 +36,9 @@ export default abstract class BaseApiService {
         };
     }
 
+    private refreshCorrelationId() {
+        this.context.correlationId = randomUUID();
+    }
     protected handleError(error: any): void {
         if (error.response) {
             const { status, statusText } = error?.response;
@@ -111,10 +114,10 @@ export default abstract class BaseApiService {
     ): Promise<AxiosResponse<any, any> | undefined> {
         try {
             this.context = context;
-
+            const headerRequest = this.buildHeaders(context, headers)
             const response = await axios.get(url, {
                 params: query,
-                headers: this.buildHeaders(context, headers),
+                headers: headerRequest,
                 baseURL: this.baseURL,
                 timeout: this.configService.timeoutResponse,
             });
@@ -189,6 +192,8 @@ export default abstract class BaseApiService {
         if (!headers) {
             return <AxiosRequestHeaders>{};
         }
+        this.refreshCorrelationId();
+
 
         headers["x-correlation-id"] = context.correlationId;
 
