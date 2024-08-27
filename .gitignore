@@ -30,4 +30,3 @@ artifacts/
 # Build files
 # /dist: allow install package from github repository
 docs
-dist

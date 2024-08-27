@@ -1,11 +1,10 @@
-import { LeaderboardApiService } from "../api";
-import { Config } from "../config";
-import { waitTime } from "../utils/wait-time";
 
+import { waitTime } from "../../src/utils/wait-time";
+import {Config, LeaderboardApi} from "@myria/api-request"
 class LeaderboardBenchTestScript {
     private config: Config
 
-    public leaderboardApiService: LeaderboardApiService
+    public leaderboardApiService: LeaderboardApi.LeaderboardApiService
     
     constructor( ) {
         this.config = Config.getInstance({
@@ -15,7 +14,7 @@ class LeaderboardBenchTestScript {
             leaderboardApiUrl: "https://staging.myriaverse-leaderboard-api.nonprod-myria.com", 
             timeoutResponse : 9000
         });
-        this.leaderboardApiService = new LeaderboardApiService(this.config)
+        this.leaderboardApiService = new LeaderboardApi.LeaderboardApiService(this.config)
     }
 }
 
