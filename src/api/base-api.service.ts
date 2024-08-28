@@ -6,16 +6,16 @@ import {
     InternalServerErrorException,
     Logger,
     ForbiddenException,
-} from "@nestjs/common";
+} from '@nestjs/common';
 import axios, {
     AxiosRequestConfig,
     AxiosRequestHeaders,
     AxiosResponse,
     RawAxiosRequestHeaders,
-} from "axios";
-import { RequestContext } from "./context";
-import { randomUUID } from "crypto";
-import { ConfigOptions } from "../type";
+} from 'axios';
+import { RequestContext } from './context';
+import { randomUUID } from 'crypto';
+import { ConfigOptions } from '../type';
 
 export interface QueryParams {
     [key: string]: string | number | undefined;
@@ -33,7 +33,7 @@ export default abstract class BaseApiService {
         this.configOptions = configOptions;
         this.context = {
             correlationId: randomUUID(),
-            logger: new Logger("BaseApiService"),
+            logger: new Logger('BaseApiService'),
         };
     }
 
@@ -49,7 +49,7 @@ export default abstract class BaseApiService {
                         ...error.response.data,
                         correlationId: this.context.correlationId,
                     },
-                    "Request to api",
+                    'Request to api',
                 );
                 throw new NotFoundException({
                     status,
@@ -63,7 +63,7 @@ export default abstract class BaseApiService {
                         ...error.response.data,
                         correlationId: this.context.correlationId,
                     },
-                    "Request to api",
+                    'Request to api',
                 );
                 throw new BadRequestException({
                     status,
@@ -77,7 +77,7 @@ export default abstract class BaseApiService {
                         ...error.response.data,
                         correlationId: this.context.correlationId,
                     },
-                    "Request to api",
+                    'Request to api',
                 );
                 throw new UnauthorizedException({
                     status,
@@ -91,7 +91,7 @@ export default abstract class BaseApiService {
                         ...error.response.data,
                         correlationId: this.context.correlationId,
                     },
-                    "Request to api",
+                    'Request to api',
                 );
                 throw new ForbiddenException({
                     status,
@@ -105,9 +105,9 @@ export default abstract class BaseApiService {
                 apiErrors: error.response.data,
             });
         }
-        if (error.code === "ECONNREFUSED") {
+        if (error.code === 'ECONNREFUSED') {
             throw new InternalServerErrorException({
-                message: "Connection refused",
+                message: 'Connection refused',
             });
         }
 
@@ -116,7 +116,7 @@ export default abstract class BaseApiService {
                 error,
                 correlationId: this.context.correlationId,
             },
-            "Request to api",
+            'Request to api',
         );
         throw new InternalServerErrorException(error);
     }
@@ -201,28 +201,28 @@ export default abstract class BaseApiService {
         }
         this.refreshCorrelationId();
 
-        headers["x-correlation-id"] = context.correlationId;
+        headers['x-correlation-id'] = context.correlationId;
 
         const { headers: headerParams } = <AxiosRequestConfig>context;
 
         if (headerParams) {
-            if (headerParams["x-signature"]) {
-                headers["x-signature"] = String(headerParams["x-signature"]);
+            if (headerParams['x-signature']) {
+                headers['x-signature'] = String(headerParams['x-signature']);
             }
 
-            if (headerParams["x-timestamp"]) {
-                headers["x-timestamp"] = String(headerParams["x-timestamp"]);
+            if (headerParams['x-timestamp']) {
+                headers['x-timestamp'] = String(headerParams['x-timestamp']);
             }
 
-            if (headerParams["stark-key"]) {
-                headers["stark-key"] = String(headerParams["stark-key"]);
+            if (headerParams['stark-key']) {
+                headers['stark-key'] = String(headerParams['stark-key']);
             }
         }
 
         context.logger.debug(
             JSON.stringify({
                 headers,
-                message: "Header config before request to out side",
+                message: 'Header config before request to out side',
             }),
         );
         return <AxiosRequestHeaders>headers || {};

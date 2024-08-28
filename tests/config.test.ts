@@ -1,4 +1,4 @@
-import * as CommonType from "../src/type/CommonType"
+import * as CommonType from '../src/type/CommonType';
 describe('Config Singleton', () => {
     let cfg: CommonType.ConfigOptions;
 
@@ -7,13 +7,12 @@ describe('Config Singleton', () => {
             developerId: 'xxx',
             secretKey: 'xxx',
             debug: true,
-            timeoutResponse : 900
-        }
+            timeoutResponse: 900,
+        };
     });
 
     it('compare leaderboardApiUrl', () => {
         const result = cfg.developerId;
         expect(result).toBe('xxx');
     });
-
 });

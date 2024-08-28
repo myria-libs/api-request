@@ -3,5 +3,4 @@
     "out": "../docs",
     "exclude": ["**/*.test.ts"],
     "includeVersion": true
-  }
-  
+}

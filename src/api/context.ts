@@ -1,4 +1,4 @@
-import { Logger } from "@nestjs/common";
+import { Logger } from '@nestjs/common';
 
 export interface RequestContext {
     correlationId: string;
