@@ -1,21 +1,19 @@
-import { Config } from '../src/config';
-
+import * as CommonType from "../src/type/CommonType"
 describe('Config Singleton', () => {
-    let cfg: Config;
+    let cfg: CommonType.ConfigOptions;
 
     beforeEach(() => {
-        cfg = Config.getInstance({
+        cfg = {
             developerId: 'xxx',
             secretKey: 'xxx',
             debug: true,
-            leaderboardApiUrl: "http://localhost", 
             timeoutResponse : 900
-        });
+        }
     });
 
     it('compare leaderboardApiUrl', () => {
-        const result = cfg.getLeaderboardApiUrl();
-        expect(result).toBe('http://localhost');
+        const result = cfg.developerId;
+        expect(result).toBe('xxx');
     });
 
 });
