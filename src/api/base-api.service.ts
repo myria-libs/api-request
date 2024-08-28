@@ -37,7 +37,7 @@ export default abstract class BaseApiService {
         };
     }
 
-    private refreshCorrelationId() {
+    private refreshCorrelationId(): void {
         this.context.correlationId = randomUUID();
     }
     public handleError(error: any): void {
@@ -98,7 +98,7 @@ export default abstract class BaseApiService {
                     statusText,
                     apiErrors: error.response.data,
                 });
-            }            
+            }
             throw new InternalServerErrorException({
                 status,
                 statusText,
@@ -127,7 +127,7 @@ export default abstract class BaseApiService {
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
     ): Promise<AxiosResponse<any, any> | undefined> {
         try {
-            const headerRequest = this.buildHeaders(this.context, headers)
+            const headerRequest = this.buildHeaders(this.context, headers);
             const response = await axios.get(url, {
                 params: query,
                 headers: headerRequest,
@@ -178,7 +178,7 @@ export default abstract class BaseApiService {
         url: string,
         data?: any,
         headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
-    ): Promise<any> {
+    ): Promise<AxiosResponse<any, any> | undefined> {
         try {
             const response = await axios.delete(url, {
                 headers: this.buildHeaders(this.context, headers),
@@ -200,7 +200,6 @@ export default abstract class BaseApiService {
             return <AxiosRequestHeaders>{};
         }
         this.refreshCorrelationId();
-
 
         headers["x-correlation-id"] = context.correlationId;
 
