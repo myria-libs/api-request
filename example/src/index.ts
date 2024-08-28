@@ -1,23 +1,23 @@
 
-import { waitTime } from "../../src/utils/wait-time";
-import {Config, LeaderboardApi} from "@myria/api-request"
+import { waitTime } from "./utils/wait-time";
+import {Type, API} from "@myria/api-request"
 import { EnvConfig } from "./env.config";
-import { UserLeaderboardScore, UserLeaderboardScores } from "./types";
+import { UserLeaderboardScores } from "./types";
 class LeaderboardBenchTestScript {
-    public config: Config
+    public config: Type.ConfigOptions
     public env: EnvConfig
 
-    public resourceApiService: LeaderboardApi.ResourceApiService
+    public resourceApiService: API.ResourceApiService
     
     constructor( ) {
         this.env = new EnvConfig()
-        this.config = Config.getInstance({
+        this.config =  <Type.ConfigOptions>{
             developerId:  this.env.developerId,
             secretKey: this.env.apiKey,
             debug: true,
             timeoutResponse : 9000
-        });
-        this.resourceApiService = new LeaderboardApi.ResourceApiService(this.config)
+        };
+        this.resourceApiService = new API.ResourceApiService(this.config)
 
     }
 }

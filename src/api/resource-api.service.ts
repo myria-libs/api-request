@@ -1,11 +1,11 @@
+import { ConfigOptions } from '../type/CommonType';
 import BaseApiService from './base-api.service';
-import { Config } from '../config';
 
 export class ResourceApiService extends BaseApiService {
     constructor(
-        configService: Config,
+        configOptions: ConfigOptions,
     ) {
-        super('', configService);
+        super('', configOptions);
     }
 
     public setUrl(url: string): void {

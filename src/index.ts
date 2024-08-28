@@ -1,4 +1,4 @@
-import * as LeaderboardApi from "./api";
-import { Config } from "./config";
+import * as API from "./api";
+import * as Type from "./type";
 
-export { Config, LeaderboardApi};
+export { Type, API};

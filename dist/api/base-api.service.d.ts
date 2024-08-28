@@ -1,14 +1,14 @@
 import { AxiosRequestHeaders, AxiosResponse, RawAxiosRequestHeaders } from "axios";
-import { Config } from "../config";
 import { RequestContext } from "./context";
+import { ConfigOptions } from "../type";
 export interface QueryParams {
     [key: string]: string | number | undefined;
 }
 export default abstract class BaseApiService {
     baseURL: string | undefined;
     context: RequestContext;
-    configService: Config;
-    constructor(baseURL: string | undefined, configService: Config);
+    configOptions: ConfigOptions;
+    constructor(baseURL: string | undefined, configOptions: ConfigOptions);
     private refreshCorrelationId;
     handleError(error: any): void;
     get(url: string, query?: QueryParams, headers?: AxiosRequestHeaders | RawAxiosRequestHeaders): Promise<AxiosResponse<any, any> | undefined>;

@@ -13,9 +13,9 @@ import axios, {
     AxiosResponse,
     RawAxiosRequestHeaders,
 } from "axios";
-import { Config } from "../config";
 import { RequestContext } from "./context";
 import { randomUUID } from "crypto";
+import { ConfigOptions } from "../type";
 
 export interface QueryParams {
     [key: string]: string | number | undefined;
@@ -26,11 +26,11 @@ export default abstract class BaseApiService {
 
     public context: RequestContext;
 
-    public configService: Config;
+    public configOptions: ConfigOptions;
 
-    constructor(baseURL: string | undefined, configService: Config) {
+    constructor(baseURL: string | undefined, configOptions: ConfigOptions) {
         this.baseURL = baseURL;
-        this.configService = configService;
+        this.configOptions = configOptions;
         this.context = {
             correlationId: randomUUID(),
             logger: new Logger("BaseApiService"),
@@ -132,7 +132,7 @@ export default abstract class BaseApiService {
                 params: query,
                 headers: headerRequest,
                 baseURL: this.baseURL,
-                timeout: this.configService.timeoutResponse,
+                timeout: this.configOptions.timeoutResponse,
             });
             return response;
         } catch (error) {
@@ -149,7 +149,7 @@ export default abstract class BaseApiService {
             const response = await axios.post(url, data, {
                 headers: this.buildHeaders(this.context, headers),
                 baseURL: this.baseURL,
-                timeout: this.configService.timeoutResponse,
+                timeout: this.configOptions.timeoutResponse,
             });
             return response;
         } catch (error) {
@@ -166,7 +166,7 @@ export default abstract class BaseApiService {
             const response = await axios.put(url, data, {
                 headers: this.buildHeaders(this.context, headers),
                 baseURL: this.baseURL,
-                timeout: this.configService.timeoutResponse,
+                timeout: this.configOptions.timeoutResponse,
             });
             return response;
         } catch (error) {
@@ -182,7 +182,7 @@ export default abstract class BaseApiService {
         try {
             const response = await axios.delete(url, {
                 headers: this.buildHeaders(this.context, headers),
-                timeout: this.configService.timeoutResponse,
+                timeout: this.configOptions.timeoutResponse,
                 baseURL: this.baseURL,
                 data,
             });
