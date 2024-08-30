@@ -2,12 +2,12 @@
     "name": "example",
     "version": "1.1.0",
     "description": "example use the npm package",
-    "main": "index.js",
+    "main": "dist/index.js",
     "scripts": {
         "test": "echo 'example testing a customized npm package on local'",
         "prebuild": "rm -rf ./dist",
-        "build": "tsc",        
-        "start": "node dist/index.js",
+        "build": "tsc",
+        "start": "npm run build && node dist/index.js",
         "dev": "npx ts-node src/index.ts"
     },
     "author": "Le Ngoc Duy",

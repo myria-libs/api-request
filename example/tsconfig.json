@@ -1,35 +1,25 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./example/src",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "allowJs": true,
-    "esModuleInterop": true,
-    "lib": [
-      "es2018",
-      "es2020",
-      "esnext.asynciterable",
-      "DOM"
-    ],
-    "types": [
-      "jest",
-      "node"
-    ]
-  },
-    "include": [
-    "src/**/*",
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "target": "es2017",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "./example/src",
+        "incremental": true,
+        "skipLibCheck": true,
+        "strict": false,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "lib": ["es2018", "es2020", "esnext.asynciterable", "DOM"],
+        "types": ["jest", "node"],
+    },
+    "include": ["src/**/*", "../src/utils"],
 }

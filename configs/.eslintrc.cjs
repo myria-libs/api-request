@@ -25,6 +25,7 @@ module.exports = {
             'error',
             {
                 tabWidth: 4,
+                quotes: [2, 'single', { avoidEscape: true }],
             },
         ],
     },

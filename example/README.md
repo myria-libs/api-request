@@ -6,7 +6,11 @@ As a best-practice, we always verify our package before publishing your package 
 
 ### Reuse the `example` in our case
 
-Trigger start to install the local package and run your logic inside `index.js`
+#### Configure environment variables
+
+Duplicate file `.env.environment` to new file `.env` and update values accordingly
+
+#### Start server
 
 ```bash
 npm run start

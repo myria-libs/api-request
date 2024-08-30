@@ -6,8 +6,10 @@
  * Centralize configuration required variables for our sdk
  */
 export interface ConfigOptions {
-    developerId: string;
-    secretKey: string;
+    developerApiKey: string;
+    clientApiKey: string;
+    adminApiKey: string;
+    userAccessToken: string;
     debug: boolean;
     timeoutResponse: number;
 }
