@@ -1,14 +1,14 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResourceApiService = void 0;
-const base_api_service_1 = require('./base-api.service');
+const base_api_service_1 = require("./base-api.service");
 class ResourceApiService extends base_api_service_1.BaseApiService {
     constructor(configOptions) {
-        super('', configOptions);
+        super("", configOptions);
     }
     setUrl(url) {
         const detectUrl = new URL(url);
-        const basUrl = detectUrl.protocol + '//' + detectUrl.hostname;
+        const basUrl = detectUrl.protocol + "//" + detectUrl.hostname;
         this.baseURL = basUrl;
     }
 }

@@ -2,8 +2,8 @@ import {
     AxiosRequestHeaders,
     AxiosResponse,
     RawAxiosRequestHeaders,
-} from 'axios';
-import { ConfigOptions, RequestContext } from '../type';
+} from "axios";
+import { ConfigOptions, RequestContext } from "../type";
 export interface QueryParams {
     [key: string]: string | number | undefined;
 }

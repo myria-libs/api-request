@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var __createBinding =
     (this && this.__createBinding) ||
     (Object.create
@@ -7,7 +7,7 @@ var __createBinding =
               var desc = Object.getOwnPropertyDescriptor(m, k);
               if (
                   !desc ||
-                  ('get' in desc
+                  ("get" in desc
                       ? !m.__esModule
                       : desc.writable || desc.configurable)
               ) {
@@ -29,12 +29,12 @@ var __exportStar =
     function (m, exports) {
         for (var p in m)
             if (
-                p !== 'default' &&
+                p !== "default" &&
                 !Object.prototype.hasOwnProperty.call(exports, p)
             )
                 __createBinding(exports, m, p);
     };
-Object.defineProperty(exports, '__esModule', { value: true });
-__exportStar(require('./resource-api.service'), exports);
-__exportStar(require('./base-api.service'), exports);
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./resource-api.service"), exports);
+__exportStar(require("./base-api.service"), exports);
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvYXBpL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSx5REFBdUM7QUFDdkMscURBQW1DIn0=

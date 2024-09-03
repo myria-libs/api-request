@@ -1,7 +1,7 @@
 export declare enum ENVIRONMENT {
-    DEVELOPMENT = 'development',
-    PRODUCTION = 'production',
-    LOCAL = 'local',
+    DEVELOPMENT = "development",
+    PRODUCTION = "production",
+    LOCAL = "local",
 }
 export declare class EnvConfig {
     private int;

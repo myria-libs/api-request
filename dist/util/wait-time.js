@@ -1,5 +1,5 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.waitTime = void 0;
 function waitTime(ms = 1000) {
     return new Promise((resolve) => setTimeout(resolve, ms));

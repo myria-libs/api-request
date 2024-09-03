@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var __createBinding =
     (this && this.__createBinding) ||
     (Object.create
@@ -7,7 +7,7 @@ var __createBinding =
               var desc = Object.getOwnPropertyDescriptor(m, k);
               if (
                   !desc ||
-                  ('get' in desc
+                  ("get" in desc
                       ? !m.__esModule
                       : desc.writable || desc.configurable)
               ) {
@@ -28,13 +28,13 @@ var __setModuleDefault =
     (this && this.__setModuleDefault) ||
     (Object.create
         ? function (o, v) {
-              Object.defineProperty(o, 'default', {
+              Object.defineProperty(o, "default", {
                   enumerable: true,
                   value: v,
               });
           }
         : function (o, v) {
-              o['default'] = v;
+              o["default"] = v;
           });
 var __importStar =
     (this && this.__importStar) ||
@@ -44,19 +44,19 @@ var __importStar =
         if (mod != null)
             for (var k in mod)
                 if (
-                    k !== 'default' &&
+                    k !== "default" &&
                     Object.prototype.hasOwnProperty.call(mod, k)
                 )
                     __createBinding(result, mod, k);
         __setModuleDefault(result, mod);
         return result;
     };
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Util = exports.API = exports.Type = void 0;
-const API = __importStar(require('./api'));
+const API = __importStar(require("./api"));
 exports.API = API;
-const Type = __importStar(require('./type'));
+const Type = __importStar(require("./type"));
 exports.Type = Type;
-const Util = __importStar(require('./util'));
+const Util = __importStar(require("./util"));
 exports.Util = Util;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSwyQ0FBNkI7QUFJZCxrQkFBRztBQUhsQiw2Q0FBK0I7QUFHdEIsb0JBQUk7QUFGYiw2Q0FBK0I7QUFFWCxvQkFBSSJ9

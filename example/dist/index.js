@@ -1,7 +1,7 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const api_request_1 = require('@myria/api-request');
-const env_config_1 = require('./env.config');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const api_request_1 = require("@myria/api-request");
+const env_config_1 = require("./env.config");
 class LeaderboardBenchTestScript {
     constructor() {
         this.env = new env_config_1.EnvConfig();
@@ -25,7 +25,7 @@ class LeaderboardBenchTestScript {
         const leaderboardApi = new LeaderboardBenchTestScript();
         const { leaderboardUrl, developerApiKey } = leaderboardApi.env;
         leaderboardApi.resourceApiService.setUrl(leaderboardUrl);
-        const res = await leaderboardApi.resourceApiService.get('');
+        const res = await leaderboardApi.resourceApiService.get("");
         console.log(res === null || res === void 0 ? void 0 : res.data);
         await api_request_1.Util.waitTime(1000);
         const leaderboardId = 79;
@@ -38,12 +38,12 @@ class LeaderboardBenchTestScript {
                 items: [
                     {
                         score: 19,
-                        userId: 'User_05',
+                        userId: "User_05",
                     },
                 ],
             },
             {
-                'x-api-developer-key': developerApiKey,
+                "x-api-developer-key": developerApiKey,
             },
         );
         console.log(
