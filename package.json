@@ -32,9 +32,7 @@
     },
     "keywords": [
         "myria",
-        "template",
-        "api-request",
-        "npm-typescript"
+        "api-request"
     ],
     "author": "@myria",
     "license": "UNLICENSED",

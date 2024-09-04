@@ -1,17 +1,6 @@
-# api-request-typescript
+# api-request
 
- Let developers who publish libraries via npm share with the team quickly 👍. Less time to set up utility tools to follow best practices in programming, and more time on the core features of the package 💪. Deliver our product to market faster 🚀
-
-## This package template supports us
-
-- [x] 1. **Customize configuration**: eslint, prettier, jest, typescript
-- [x] 2. **Git hook**: ensure your code is qualified with lint when committing and test when pushing from your early stage on your local machine
-- [x] 3. **CI jobs**: trigger on `each PR` or `Push event` to ensure jobs `Lint -> Build -> Test` are verified
-- [x] 4. **CD (publish) jobs**: trigger when a `new tag` is pushed
-    1. Create a new release with release notes based on your commit messages
-    2. Publish the npm package to npmjs like [@myria/airdrop-js](https://www.npmjs.com/package/@myria/airdrop-js)
-    3. Create | Update the Github page. DO not available for Github Free account on private repo
-- [x] 4. Generate API documentation for Typescript.
+Let Myria's clients who is going to interact with L2 service to reuse our built-in base api service.
 
 ## Prerequisites
 
@@ -22,27 +11,20 @@ The following tools need to be installed:
 
 ## How to use
 
-### Clone and rename with your
+### Install
 
 ```bash
-git clone git@github.com:myria-libs/api-request-typescript.git
-# rename to desire name folder
-mv api-request-typescript $desire_name
-cd $desire_name
+# via npmjs
+npm i @myria/api-request
+# via github on main branch
+npm i "https://github.com/myria-libs/api-request.git#main"
 ```
 
-### Update necessary fields e.g. name, author, version, repository, etc in package.json file
+### Consume
 
-we can manage our package.json via [npm-pkg](https://docs.npmjs.com/cli/v10/commands/npm-pkg)
+Reference the implementation on [example/src/index.ts](example/src/index.ts)
 
-```bash
-npm pkg set <key>=<value> [<key>=<value> ...]
-npm pkg get [<key> [<key> ...]]
-npm pkg delete <key> [<key> ...]
-npm pkg set [<array>[<index>].<key>=<value> ...]
-npm pkg set [<array>[].<key>=<value> ...]
-npm pkg fix
-```
+## How to contribute
 
 ### Install dependencies and build it
 
@@ -54,8 +36,6 @@ npm install | yarn install
 # run build
 npm run build | yarn build
 ```
-
-### Implement your production code, write unit tests
 
 ### Verify or fix lint
 
@@ -73,16 +53,6 @@ npm run prettier:format | yarn prettier:format
 ```bash
 npm test | yarn test
 ```
-
-## Capabilities and Frameworks
-
-| Capability           | Module                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dependence Framework | [typescript](https://www.npmjs.com/package/typescript) adds optional types to JavaScript that support tools for large-scale JavaScript applications                                                                                                                                     |
-| Coding Standard      | [eslint](https://eslint.org/) statically analyzes your code to quickly find and fix problems based on opt-in [rules](https://eslint.org/docs/latest/rules/), [prettier](https://prettier.io/docs/en/) an opinionated code formatter to build and enforce a style guide on save, [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to turns off all rules that are unnecessary or might conflict with Prettier. |
-| Testing Framework    | [Jest](https://jestjs.io/) a delightful JavaScript Testing Framework with a focus on simplicity.                                                                                                                                                                                                                                                                                                                                          |
-| Documentation Generator      | [TypeDoc](https://typedoc.org/guides/overview/) is a documentation generator for TypeScript, [http-server](https://www.npmjs.com/package/http-server) is a simple, zero-configuration command-line static HTTP server                                   |
-| Useful Links         | [npmtrends](https://npmtrends.com/) Compare package download counts over time, [act](https://nektosact.com/introduction.html) run your GitHub Actions locally, [Actionlint](https://marketplace.visualstudio.com/items?itemName=arahata.linter-actionlint) static checker for GitHub Actions workflow files                                  |
 
 ## Collaboration
 
