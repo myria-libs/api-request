@@ -1,6 +1,6 @@
 {
     "name": "@myria/api-request",
-    "version": "0.0.1-alpha",
+    "version": "0.0.2-alpha",
     "description": "Myria's Typescript api-request",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

@@ -174,6 +174,23 @@ export abstract class BaseApiService {
         }
     }
 
+    public async patch(
+        url: string,
+        data: any,
+        headers?: AxiosRequestHeaders | RawAxiosRequestHeaders,
+    ): Promise<AxiosResponse<any, any> | undefined> {
+        try {
+            const response = await axios.patch(url, data, {
+                headers: this.buildHeaders(this.context, headers),
+                baseURL: this.baseURL,
+                timeout: this.configOptions.timeoutResponse,
+            });
+            return response;
+        } catch (error) {
+            this.handleError(error);
+        }
+    }
+
     public async delete(
         url: string,
         data?: any,
