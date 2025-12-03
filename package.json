@@ -1,6 +1,6 @@
 {
     "name": "@myria/api-request",
-    "version": "0.0.2-alpha",
+    "version": "0.0.3-alpha",
     "description": "Myria's Typescript api-request",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -70,7 +70,7 @@
     },
     "dependencies": {
         "@nestjs/common": "^10.4.1",
-        "axios": "^1.7.5",
+        "axios": "^1.13.2",
         "jest": "^29.7.0"
     },
     "husky": {
